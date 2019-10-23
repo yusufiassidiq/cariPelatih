@@ -19,6 +19,11 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('class_user_id')->nullable();
             $table->foreign('class_user_id')->references('id')->on('class_users');
             $table->string('email')->unique();
+            $table->string('alamat')->nullable();
+            $table->date('tanggalLahir')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('telp')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

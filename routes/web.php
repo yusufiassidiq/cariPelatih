@@ -39,9 +39,10 @@ Route::group(['prefix' => 'pencari', 'middleware' => ['auth', 'role:Pencari']], 
 {
     Route::get('/', 'PencariController@index')->name('pencari.dashboard');
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
