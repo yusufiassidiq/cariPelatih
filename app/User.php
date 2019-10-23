@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
       return $this->belongsTo('App\ClassUser');
     }
+    public function hasClassUser($classUser)
+    {
+        $role = $this->ClassUser;
+        return $classUser == $role->ClassUser;
+    }
 }
