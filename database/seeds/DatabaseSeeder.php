@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ClassUsersTableSeeder::class);
         // seeding table user
         $this->call(UsersTableSeeder::class);
+        // seeding table kategori olahraga
+        $this->call(KategoriOlahragaTableSeeder::class);
     }
 }
