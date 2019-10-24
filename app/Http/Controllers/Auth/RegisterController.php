@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,25 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/';
+    public function redirectTo(){
+        
+        // User role
+        $role = Auth::user()->ClassUser->ClassUser; 
+        
+        // Check user role
+        switch ($role) {
+            // case 'Admin':
+            //         return '/admin';
+            //     break;
+            // case 'Pelatih':
+            //         return '/pelatih';  
+            //     break; 
+            case 'Pencari':
+                    return '/pencari';
+                break; 
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -52,6 +71,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'alamat' => ['nullable','string', 'max:255'],
+            'telp' => ['nullable','string', 'min:11', 'max:13'],
         ]);
     }
 
@@ -67,6 +88,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'alamat' => $data['alamat'],
+            'telp' => $data['telp'],
+            'class_user_id' => '3',
         ]);
     }
 }

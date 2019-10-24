@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
     {
     	$role_admin = ClassUser::where('ClassUser', 'Admin')->first();
         $user1 = new User([
-        	'id' => '111111',
+        	'id' => '1',
         	'name' => 'Admin',
         	'email' => 'admin@gmail.com',
             'password' => Hash::make('123123'),
@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
 
         $role_pelatih = ClassUser::where('ClassUser', 'Pelatih')->first();
         $user2 = new User([
-        	'id' => '222222',
+        	'id' => '2',
         	'name' => 'Pelatih',
         	'email' => 'pelatih@gmail.com',
             'password' => Hash::make('123123'),
@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
 
         $role_pencari = ClassUser::where('ClassUser', 'Pencari')->first();
         $user3 = new User([
-        	'id' => '333333',
+        	'id' => '3',
         	'name' => 'Pencari',
         	'email' => 'pencari@gmail.com',
             'password' => Hash::make('123123'),

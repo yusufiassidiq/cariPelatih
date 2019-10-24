@@ -24,9 +24,25 @@ Route::get('/', function () {
 		 return redirect('/admin');
 	 }
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], function()
+{
+    Route::get('/', 'AdminController@index')->name('Admin.dashboard');
+});
+
+Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], function()
+{
+    Route::get('/', 'PelatihController@index')->name('pelatih.dashboard');
+});
+
+Route::group(['prefix' => 'pencari', 'middleware' => ['auth', 'role:Pencari']], function()
+{
+    Route::get('/', 'PencariController@index')->name('pencari.dashboard');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
