@@ -45,4 +45,8 @@ class User extends Authenticatable
         $role = $this->ClassUser;
         return $classUser == $role->ClassUser;
     }
+    public function kategoriOlahraga()
+    {
+        return $this->belongsToMany('App\KategoriOlahraga')->withPivot('ended_at')->withTimestamps();
+    }
 }

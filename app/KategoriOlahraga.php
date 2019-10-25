@@ -10,5 +10,7 @@ class KategoriOlahraga extends Model
     protected $table = 'kategori_olahraga';
     public $incrementing = false;
     
-    // public function pelatihs()
+    public function pelatih(){
+        return $this->belongsToMany('App\User', 'pelatih_kategoriOlahraga', 'pelatih_id', 'kategoriOlahraga_id')->withTimestamps();
+    }
 }

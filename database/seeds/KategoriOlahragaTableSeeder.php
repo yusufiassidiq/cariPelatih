@@ -15,33 +15,33 @@ class KategoriOlahragaTableSeeder extends Seeder
         DB::table('kategori_olahraga')->insert([
             [
             'namaOlahraga' => 'Renang',
-            'created_at' => Carbon::now('Asia/Jakarta'),
-            'updated_at' => Carbon::now('Asia/Jakarta'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             ],
             [
             'namaOlahraga' => 'Tenis Lapang',
-            'created_at' => Carbon::now('Asia/Jakarta'),
-            'updated_at' => Carbon::now('Asia/Jakarta'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             ],
             [
             'namaOlahraga' => 'Basket',
-            'created_at' => Carbon::now('Asia/Jakarta'),
-            'updated_at' => Carbon::now('Asia/Jakarta'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             ],
             [
             'namaOlahraga' => 'Badminton',
-            'created_at' => Carbon::now('Asia/Jakarta'),
-            'updated_at' => Carbon::now('Asia/Jakarta'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             ],
             [
             'namaOlahraga' => 'Sepak Bola',
-            'created_at' => Carbon::now('Asia/Jakarta'),
-            'updated_at' => Carbon::now('Asia/Jakarta'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             ],
             [
             'namaOlahraga' => 'Karate',
-            'created_at' => Carbon::now('Asia/Jakarta'),
-            'updated_at' => Carbon::now('Asia/Jakarta'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             ],
         ]);
     }

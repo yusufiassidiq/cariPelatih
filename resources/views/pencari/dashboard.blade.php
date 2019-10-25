@@ -15,13 +15,12 @@
                     @endif
                     <div><h3>Kategori Olahraga:</h3></div>
                     <br>
-                    <div class="square">Renang</div>
-                    <div class="square">Tenis Lapang</div>
-                    <div class="square">Basket</div>
-                    <div class="square">Badminton</div>
-                    <div class="square">Sepak Bola</div>
-                    <div class="square">Karate</div>
-                    
+                    <?php $i = 0 ?>
+                    @foreach ($kategoriOlahragas as $kategoriOlahraga)
+                    <?php $i++ ?>
+                        <td>{{$kategoriOlahraga->namaOlahraga}}</td> 
+                        <br>
+                    @endforeach
                 </div>
             </div>
         </div>

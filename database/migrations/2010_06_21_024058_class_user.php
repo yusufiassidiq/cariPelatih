@@ -16,7 +16,6 @@ class ClassUser extends Migration
         Schema::create('class_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ClassUser');
-        
             $table->timestamps();
         });
     }

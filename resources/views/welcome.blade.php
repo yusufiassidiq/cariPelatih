@@ -63,6 +63,12 @@
             }
         </style>
     </head>
+        @if ($message = Session::get('success'))
+            <div id="messageAlert" class="alert alert-success alert-dismissible">
+              <h4><i class="icon fa fa-check"></i> Berhasil!</h4>
+              {{ $message }}
+            </div>
+        @endif
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -81,18 +87,62 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Daftar Pelatih
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="box-body">
+                    <form class="form-horizontal" action="{{ route('Admin.addPelatih') }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nama<span style="color: red">*</span></label>
+                            <div class="col-sm-6">
+                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" placeholder="Enter ..." autofocus>
+                                @error('nama')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">Email</label>
+                          <div class="col-sm-6">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter ..." autocomplete="email">
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">Password <span style="color: red">*</span></label>
+                          <div class="col-sm-6">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter ...">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">Confirm Password <span style="color: red">*</span></label>
+                          <div class="col-sm-6">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Enter ...">
+                          </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <div class="col-sm-9">
+                                <div class="col-sm-4 pull-right"><button type="submit" class="btn btn-block btn-success btn-lg">Save</button></div>
+                            </div>          
+                        </div>
+                        
+                    </form> 
                 </div>
             </div>
         </div>

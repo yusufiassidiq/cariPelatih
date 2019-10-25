@@ -27,8 +27,12 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], function()
 {
-    Route::get('/', 'AdminController@index')->name('Admin.dashboard');
+	Route::get('/', 'AdminController@index')->name('Admin.dashboard');
+	
 });
+
+Route::post('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
+Route::get('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
 
 Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], function()
 {
@@ -42,7 +46,7 @@ Route::group(['prefix' => 'pencari', 'middleware' => ['auth', 'role:Pencari']], 
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
