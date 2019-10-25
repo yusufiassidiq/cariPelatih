@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], func
 });
 
 Route::post('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
-Route::get('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
+// Route::get('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
 
 Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], function()
 {

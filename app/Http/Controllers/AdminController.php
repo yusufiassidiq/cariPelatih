@@ -16,29 +16,20 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    // protected function validator(array $request)
-    // {
-    //     return Validator::make($request, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:6', 'confirmed'],
-    //         // 'alamat' => ['nullable','string', 'max:255'],
-    //         // 'telp' => ['nullable','string', 'min:11', 'max:13'],
-    //     ]);
-    // }
     public function addPelatih(Request $request){
         $messages = [
             'required' => 'Tolong isi form :attribute',
         ];
 
         $validator = Validator::make(request()->all(), [
-            'name' => ['required', 'string', 'max:255'],
+            'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
  
         ], $messages);
 
         if ($validator->fails()) {
+            // return dd("cobalagi");
             return redirect()->back()->withErrors($validator->errors());
         }
         

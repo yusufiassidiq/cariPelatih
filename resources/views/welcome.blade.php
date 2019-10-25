@@ -63,12 +63,7 @@
             }
         </style>
     </head>
-        @if ($message = Session::get('success'))
-            <div id="messageAlert" class="alert alert-success alert-dismissible">
-              <h4><i class="icon fa fa-check"></i> Berhasil!</h4>
-              {{ $message }}
-            </div>
-        @endif
+        
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -84,13 +79,28 @@
                     @endauth
                 </div>
             @endif
-
+            @if ($message = Session::get('success'))
+                <div id="messageAlert" class="alert alert-success alert-dismissible">
+                  <h4><i class="icon fa fa-check"></i> Berhasil!</h4>
+                  {{ $message }}
+                </div>
+            @endif
+            @if (count($errors) > 0)
+            <div id="messageAlert" class="alert alert-danger alert-dismissible">
+              <h4><i class="icon fa fa-close"></i> Gagal!</h4>
+              @foreach ($errors->all() as $error)
+              <label class="failed form-control alert alert-danger" >
+                <li>{{ $error }}</li>
+              </label>
+              @endforeach
+            </div>
+            @endif
             <div class="content">
+
+                <div class="box-body">
                 <div class="title m-b-md">
                     Daftar Pelatih
                 </div>
-
-                <div class="box-body">
                     <form class="form-horizontal" action="{{ route('Admin.addPelatih') }}" method="post">
                         @csrf
                         <div class="form-group">
