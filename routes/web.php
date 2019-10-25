@@ -25,24 +25,29 @@ Route::get('/', function () {
 	 }
 });
 
+//ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], function()
 {
 	Route::get('/', 'AdminController@index')->name('Admin.dashboard');
-	
+	Route::delete('/calonPelatih/deleteCalonPelatih/{id}', 'AdminController@deleteCalonPelatih')->name('Admin.deleteCalonPelatih');
+	Route::get('/calonPelatih/terimaCalonPelatih/{id}','AdminController@terimaCalonPelatih')->name('Admin.terimaCalonPelatih');
 });
 
-Route::post('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
-// Route::get('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
-
+//PELATIH
 Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], function()
 {
     Route::get('/', 'PelatihController@index')->name('pelatih.dashboard');
 });
 
+//PENCARI
 Route::group(['prefix' => 'pencari', 'middleware' => ['auth', 'role:Pencari']], function()
 {
     Route::get('/', 'PencariController@index')->name('pencari.dashboard');
 });
+
+//GUEST
+Route::post('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
+// Route::get('/addPelatih', 'AdminController@addPelatih')->name('Admin.addPelatih');
 
 Route::get('/', function () {
     return view('welcome');

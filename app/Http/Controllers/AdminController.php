@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\CalonPelatih;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use Session;
+use Auth;
 
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.dashboard');
+        $calonPelatihs = CalonPelatih::all();
+        return view('admin.dashboard',compact('calonPelatihs'));
+        // return view('admin.dashboard');
     }
 
     public function addPelatih(Request $request){
@@ -29,11 +33,13 @@ class AdminController extends Controller
         ], $messages);
 
         if ($validator->fails()) {
-            // return dd("cobalagi");
             return redirect()->back()->withErrors($validator->errors());
         }
+        // if (Auth::check()){
+
+        // }
         
-        $pelatih = new User([
+        $calonPelatih = new CalonPelatih([
             'name' => $request->nama,
             // 'alamat' => $request->alamat,
             'email' => $request->email,
@@ -41,12 +47,34 @@ class AdminController extends Controller
             // 'instagram' => $request->instagram,
             // 'telp' => $request->telp,
             'class_user_id' => '2',
-            'password' => ($request->password),
+            'status' => 'Menunggu Konfirmasi', 
+            'password' => (Hash::make($request->password)),
         ]);
-        $pelatih->save();
+        $calonPelatih->save();
         return redirect()
             ->route('welcome')
-            ->with(['success' => 'Pelatih berhasil ditambahkan!']);
-            
+            ->with(['success' => 'Pendaftaran anda berhasil! Verifikasi akan dilakukan oleh pihak kami']);        
+    }
+    
+    public function deleteCalonPelatih($id){
+        $calonPelatih = CalonPelatih::find($id);
+        $calonPelatih->delete();
+        return redirect(route('Admin.dashboard'));
+    }
+
+    public function terimaCalonPelatih($id){
+        $calonPelatih = CalonPelatih::find($id);
+        $calonPelatih->update([
+            'status'=>'Diterima'
+        ]);
+        $pelatihBaru = new User([
+            'name'=> $calonPelatih->name,
+            'email'=>$calonPelatih->email,
+            'class_user_id'=>$calonPelatih->class_user_id,
+            'password'=>$calonPelatih->password,    
+        ]);
+        $pelatihBaru->save();
+        // return dd($pelatihBaru);
+        return redirect(route('Admin.dashboard'));
     }
 }
