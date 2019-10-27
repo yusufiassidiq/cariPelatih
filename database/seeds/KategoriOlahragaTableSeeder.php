@@ -12,6 +12,7 @@ class KategoriOlahragaTableSeeder extends Seeder
      */
     public function run()
     {
+        //
         DB::table('kategori_olahraga')->insert([
             [
             'namaOlahraga' => 'Renang',
@@ -45,5 +46,4 @@ class KategoriOlahragaTableSeeder extends Seeder
             ],
         ]);
     }
-   
 }
