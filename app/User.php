@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','idClassUser','class_user_id'
+        'name', 'email', 'password','class_user_id','profpic','cv','telp','alamat','tanggalLahir',
+        'instagram','facebook'
+        // ,'idClassUser'
     ];
 
     /**
@@ -44,5 +46,9 @@ class User extends Authenticatable
     {
         $role = $this->ClassUser;
         return $classUser == $role->ClassUser;
+    }
+    public function kategoriOlahraga()
+    {
+        return $this->belongsToMany('App\KategoriOlahraga')->withPivot('ended_at')->withTimestamps();
     }
 }
