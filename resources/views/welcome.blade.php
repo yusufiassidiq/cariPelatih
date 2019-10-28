@@ -1,186 +1,495 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.pencari')
 
-        <title>Laravel</title>
-        
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Agent</a></li>
+	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-        
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            <div>
-                @if ($message = Session::get('success'))
-                    <div id="messageAlert" class="alert alert-success alert-dismissible">
-                      <h4><i class="icon fa fa-check"></i> Berhasil!</h4>
-                      {{ $message }}
-                    </div>
-                @endif
-                @if (count($errors) > 0)
-                <div id="messageAlert" class="alert alert-danger alert-dismissible">
-                  <h4><i class="icon fa fa-close"></i> Gagal!</h4>
-                  @foreach ($errors->all() as $error)
-                  <label class="failed form-control alert alert-danger" >
-                    <li>{{ $error }}</li>
-                  </label>
-                  @endforeach
-                </div>
-                @endif
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/coach.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text justify-content-center align-items-center">
+          <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+          	<div class="text text-center">
+	            <h1 class="mb-4">The Simplest <br>Way to Find Property</h1>
+	            <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
+	            <form action="#" class="search-location mt-md-5">
+		        		<div class="row justify-content-center">
+		        			<div class="col-lg-10 align-items-end">
+		        				<div class="form-group">
+		          				<div class="form-field">
+				                <input type="text" class="form-control" placeholder="Search location">
+				                <button><span class="ion-ios-search"></span></button>
+				              </div>
+			              </div>
+		        			</div>
+		        		</div>
+		        	</form>
             </div>
-            <div class="content">
-
-                <div class="box-body">
-                <div class="title m-b-md">
-                    Daftar Pelatih
-                </div>
-                    <form class="form-horizontal" action="{{ route('Admin.addPelatih') }}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Nama<span style="color: red">*</span></label>
-                            <div class="col-sm-12">
-                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" placeholder="Enter ..." autofocus>
-                                @error('nama')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="col-sm-3 control-label">Email<span style="color: red">*</span></label>
-                          <div class="col-sm-12">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter ..." autocomplete="email">
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="col-sm-3 control-label">Password <span style="color: red">*</span></label>
-                          <div class="col-sm-12">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter ...">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="col-sm-3 control-label">Confirm Password <span style="color: red">*</span></label>
-                          <div class="col-sm-12">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Enter ...">
-                          </div>
-                        </div>
-
-                        <div class="box-footer">
-                            <div class="col-sm-9">
-                                <div class="col-sm-4 pull-right"><button type="submit" class="btn btn-block btn-success btn-lg">Save</button></div>
-                            </div>          
-                        </div>
-                        
-                    </form> 
-                </div>
-            </div>
+          </div>
         </div>
-    </body>
-</html>
+      </div>
+      <div class="mouse">
+				<a href="#" class="mouse-icon">
+					<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+				</a>
+			</div>
+    </div>
 
-<script>
-  window.setTimeout(function() {
-    $(".alert").fadeTo(200, 0).slideUp(200, function(){
-    $(this).remove(); 
-  });
-}, 3000);
-</script>
+    <section class="ftco-section ftco-no-pb">
+      <div class="container">
+      	<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Our Services</span>
+            <h2 class="mb-2">The smartest way to buy a home</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-piggy-bank"></span></div>
+              <div class="media-body py-md-4">
+                <h3>No Downpayment</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-wallet"></span></div>
+              <div class="media-body py-md-4">
+                <h3>All Cash Offer</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-file"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Experts in Your Corner</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-locked"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Lokced in Pricing</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section goto-here">
+    	<div class="container">
+    		<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">What we offer</span>
+            <h2 class="mb-2">Exclusive Offer For You</h2>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(images/work-1.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="#">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(images/work-2.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="#">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(images/work-3.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="#">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(images/bg_2.jpg);">
+    	<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row justify-content-start mb-5">
+          <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
+          	<span class="subheading">Work flow</span>
+            <h2 class="mb-3">How it works</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="row">
+		    			<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
+		                <h3>Evaluate Property</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
+		                <h3>Meet Your Agent</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
+		                <h3>Close the Deal</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
+		                <h3>Have Your Property</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		              </div>
+		            </div>      
+		          </div>
+		        </div>
+		      </div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-no-pb">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+					</div>
+					<div class="col-md-6 wrap-about py-md-5 ftco-animate">
+	          <div class="heading-section p-md-5">
+	            <h2 class="mb-4">We Put People First.</h2>
+
+	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+	          </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-counter img" id="section-counter">
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 py-4 mb-4">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="305">0</strong>
+                <span>Area <br>Population</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 py-4 mb-4">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="1090">0</strong>
+                <span>Total <br>Properties</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 py-4 mb-4">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="209">0</strong>
+                <span>Average <br>House</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 py-4 mb-4">
+              <div class="text d-flex align-items-center">
+                <strong class="number" data-number="67">0</strong>
+                <span>Total <br>Branches</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+          	<span class="subheading">Testimonial</span>
+            <h2 class="mb-3">Happy Clients</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-agent ftco-no-pt">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<span class="subheading">Agents</span>
+            <h2 class="mb-4">Our Agents</h2>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="images/team-1.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">James Stallon</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="images/team-2.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">James Stallon</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="images/team-3.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">James Stallon</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="images/team-4.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">James Stallon</a></h3>
+								<p class="h-info"><span class="position">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+
+    <section class="ftco-section ftco-no-pt">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Blog</span>
+            <h2>Recent Blog</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta mb-3">
+                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Admin</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');">
+	              </a>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta mb-3">
+                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Admin</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_2.jpg');">
+	              </a>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta mb-3">
+                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Admin</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_3.jpg');">
+	              </a>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta mb-3">
+                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Admin</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_4.jpg');">
+	              </a>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>		
+
+@endsection

@@ -56,3 +56,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/list_pelatih', 'PencariController@list_pelatih')->name('list_pelatih');
