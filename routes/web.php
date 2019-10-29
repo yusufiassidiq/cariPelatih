@@ -10,20 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-	if(!Auth::check()){
-		return redirect('/login');
-	 }
-    if(Auth::user()->ClassUser->ClassUser == 'Pencari'){
-		return redirect('/pencari');
-	 }
-	 if(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
-		 return redirect('/pelatih');
-	 }
-	 if(Auth::user()->ClassUser->ClassUser == 'Admin'){
-		 return redirect('/admin');
-	 }
-});
+// Route::get('/', function () {
+// 	if(!Auth::check()){
+// 		return redirect('/login');
+// 	 }
+//     if(Auth::user()->ClassUser->ClassUser == 'Pencari'){
+//     // return view('welcome');
+// 	return redirect('/home');
+// 	 }
+// 	 if(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
+// 		 return redirect('/pelatih');
+// 	 }
+// 	 if(Auth::user()->ClassUser->ClassUser == 'Admin'){
+// 		 return redirect('/admin');
+// 	 }
+// });
 
 //ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], function()
@@ -40,7 +41,7 @@ Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], 
 });
 
 //PENCARI
-Route::group(['prefix' => 'pencari', 'middleware' => ['auth', 'role:Pencari']], function()
+Route::group(['prefix' => 'home', 'middleware' => ['auth', 'role:Pencari']], function()
 {
     Route::get('/', 'PencariController@index')->name('pencari.dashboard');
 });
@@ -55,5 +56,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list_pelatih', 'PencariController@list_pelatih')->name('list_pelatih');

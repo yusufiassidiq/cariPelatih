@@ -7,17 +7,46 @@
 	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
 	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
 	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Agent</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li>
+	          <!-- <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
+	          <!-- <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li> -->
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+              <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
+              <!-- Authentication Links -->
+              @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/coach.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/coach_2.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-center align-items-center">
@@ -97,7 +126,7 @@
       </div>
     </section>
 
-    <section class="ftco-section goto-here">
+    <!-- <section class="ftco-section goto-here">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -162,8 +191,48 @@
         	</div>
         </div>
     	</div>
+    </section> -->
+    <section class="ftco-section goto-here">
+    <div class="container">
+            <div class="row justify-content-center">
+        <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">What we offer</span>
+            <h2 class="mb-2">Sports Category</h2>
+        </div>
+    </div>
+      <div class="carousel slide" data-ride="carousel" id="multi_item">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-sm"><img class="d-block w-100" src="{{ asset('/images/olahraga/Sepak Bola.jpeg') }}" alt="1 slide"></div>
+              <div class="col-sm"><img class="d-block w-100" src="{{ asset('/images/olahraga/Badminton.jpeg') }}" alt="2 slide"></div>
+              <div class="col-sm"><img class="d-block w-100" src="{{ asset('/images/olahraga/Karate.jpeg') }}" alt="3 slide"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-sm"><img class="d-block w-100" src="http://www.tutsmake.com/wp-content/uploads/2019/03/boostrap-datetimepicker.jpeg" alt="5 slide"></div>
+              <div class="col-sm"><img class="d-block w-100" src="http://www.tutsmake.com/wp-content/uploads/2019/03/install-sublime-on-ubunut.jpeg" alt="4 slide"></div>
+              <div class="col-sm"><img class="d-block w-100" src="http://www.tutsmake.com/wp-content/uploads/2019/03/laravel-razorpay-payment.jpeg" alt="6 slide"></div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#multi_item" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#multi_item" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
     </section>
-
+<script>
+$('.carousel').carousel({
+  interval: 2000
+})
+</script>
     <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(images/bg_2.jpg);">
     	<div class="overlay"></div>
     	<div class="container">

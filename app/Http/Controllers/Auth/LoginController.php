@@ -41,7 +41,7 @@ class LoginController extends Controller
                     return '/pelatih';  
                 break; 
             case 'Pencari':
-                    return '/pencari';
+                    return '/home';
                 break; 
         }
     }
