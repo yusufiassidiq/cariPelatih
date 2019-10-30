@@ -44,7 +44,7 @@ class RegisterController extends Controller
             //         return '/pelatih';  
             //     break; 
             case 'Pencari':
-                    return '/pencari';
+                    return '/home';
                 break; 
         }
     }

@@ -2,49 +2,7 @@
 
 @section('content')
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Agent</a></li>
-	          <!-- <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
-	          <!-- <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li> -->
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-              <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
-              <!-- Authentication Links -->
-              @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
+        
 
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/coach_2.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
@@ -230,7 +188,7 @@
     </section>
 <script>
 $('.carousel').carousel({
-  interval: 2000
+  interval: 4000
 })
 </script>
     <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(images/bg_2.jpg);">

@@ -2,20 +2,7 @@
 
 @section('content')
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="{{route('welcome')}}" class="nav-link">Home</a></li>
-	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-	          <li class="nav-item active"><a href="list_pelatih" class="nav-link">Agent</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
+        
 
     <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('images/coach_2.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
