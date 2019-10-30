@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('profpic')->default('defaultPicture.jpg');
             $table->string('cv')->default('defaultCV.jpg');
             $table->string('telp')->nullable();
+            $table->integer('tarif')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('alamat')->nullable();

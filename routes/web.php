@@ -53,8 +53,9 @@ Route::get('/home', function () {
 Auth::routes();
 
 //GUEST
-Route::post('/addPelatih', 'PelatihController@addPelatih')->name('registerPelatih');
-// Route::get('/addPelatih', 'AdminController@addPelatih')->name('registerPelatih');
+Route::post('/addPelatih', 'PelatihController@addPelatih')->name('addPelatih');
+Route::get('/registerPelatih', 'PelatihController@registerPelatih')->name('registerPelatih');
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list_pelatih', 'PencariController@list_pelatih')->name('list_pelatih');
-Route::get('/home', 'PencariController@index')->name('home');
+
+// Route::get('/home', 'PencariController@index')->name('home');
