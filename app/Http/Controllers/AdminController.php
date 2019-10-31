@@ -46,8 +46,8 @@ class AdminController extends Controller
             'password'=>$calonPelatih->password,    
         ]);
         $pelatihBaru->save();
-        $iduser = $calonPelatih->id;
-        $user = User::find($iduser);
+        $namauser = $calonPelatih->nama;
+        $user = User::where('nama',$namauser)->first();
         $namakategoriOlahraga = $calonPelatih->kategoriOlahraga;
         $kategoriOlahraga = KategoriOlahraga::where('namaOlahraga',$namakategoriOlahraga)->first();
         $user->kategoriOlahraga()->attach($kategoriOlahraga);

@@ -61,4 +61,4 @@ Route::get('/registerPelatih', 'PelatihController@registerPelatih')->name('regis
 	// })->name('welcome');
 
 Route::get('/home','PencariController@index')->name('home');
-Route::get('/list_pelatih', 'PencariController@list_pelatih')->name('list_pelatih');
+Route::get('/list_pelatih', 'PelatihController@list_pelatih')->name('list_pelatih');

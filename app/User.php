@@ -49,6 +49,6 @@ class User extends Authenticatable
     }
     public function kategoriOlahraga()
     {
-        return $this->belongsToMany('App\KategoriOlahraga')->withPivot('ended_at')->withTimestamps();
+        return $this->belongsToMany('App\KategoriOlahraga')->withTimestamps();
     }
 }

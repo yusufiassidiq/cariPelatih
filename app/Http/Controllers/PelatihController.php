@@ -9,6 +9,8 @@ use File;
 use Hash;
 use App\User;
 use App\KategoriOlahraga;
+use Auth;
+use Ap\Pelatih;
 
 class PelatihController extends Controller
 {
@@ -77,5 +79,28 @@ class PelatihController extends Controller
         return redirect()
             ->route('registerPelatih')
             ->with(['success' => 'Pendaftaran anda berhasil! Verifikasi akan dilakukan oleh pihak kami']);        
+    }
+
+    public function list_pelatih()
+    {
+        // $pelatih = User::where()
+        if (Auth::guest()){
+            $kategoriOlahragas = KategoriOlahraga::all();
+            $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+            // $listpelatih = array()
+            // dd($pelatihs);
+        return view('list_pelatih',compact('pelatihs'));
+        }
+        if (Auth::user()->ClassUser->ClassUser == 'Pencari'){
+            $kategoriOlahragas = KategoriOlahraga::all();
+        return view('list_pelatih');
+        }
+        elseif(Auth::user()->ClassUser->ClassUser == 'Admin'){
+            return redirect('/admin');
+        }
+        elseif(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
+            return redirect('/pelatih');
+        }
+        
     }
 }

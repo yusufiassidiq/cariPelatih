@@ -26,8 +26,5 @@ class PencariController extends Controller
         }
     }
 
-    public function list_pelatih()
-    {
-        return view('list_pelatih');
-    }
+    
 }
