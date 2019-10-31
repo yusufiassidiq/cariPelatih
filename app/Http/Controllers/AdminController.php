@@ -11,6 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use Session;
 use Auth;
+use App\KategoriOlahraga;
 
 class AdminController extends Controller
 {
@@ -34,13 +35,23 @@ class AdminController extends Controller
             'status'=>'Diterima'
         ]);
         $pelatihBaru = new User([
-            'name'=> $calonPelatih->name,
+            'nama'=> $calonPelatih->nama,
             'email'=>$calonPelatih->email,
+            'profpic'=>$calonPelatih->profpic,
+            'cv'=>$calonPelatih->cv,
+            'tarif'=>$calonPelatih->tarif,
+            'alamat'=>$calonPelatih->alamat,
+            'telp'=>$calonPelatih->telp,
             'class_user_id'=>$calonPelatih->class_user_id,
             'password'=>$calonPelatih->password,    
         ]);
         $pelatihBaru->save();
-        // return dd($pelatihBaru);
+        $iduser = $calonPelatih->id;
+        $user = User::find($iduser);
+        $namakategoriOlahraga = $calonPelatih->kategoriOlahraga;
+        $kategoriOlahraga = KategoriOlahraga::where('namaOlahraga',$namakategoriOlahraga)->first();
+        $user->kategoriOlahraga()->attach($kategoriOlahraga);
+        // return dd($user,$kategoriOlahraga);
         return redirect(route('Admin.dashboard'));
     }
 }

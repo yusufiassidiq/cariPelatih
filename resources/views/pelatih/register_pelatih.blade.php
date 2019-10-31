@@ -41,7 +41,7 @@
                                     <div class="col-md-6">
                                         <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
                 
-                                        @error('name')
+                                        @error('nama')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -61,6 +61,22 @@
                                             </span>
                                         @enderror
                                     </div>
+                                </div>
+
+                                <div class="form-group row">
+                                  <label class="col-md-4 col-form-label text-md-right">Kategori Olahraga</label>
+                                  <div class="col-sm-6">
+                                    <select name="kategoriOlahraga" id="" class="form-control center" required > 
+                                        <option selected="selected" value="" disabled selected >Pilih Kategori Olahraga</option> 
+                                        @foreach ($kategoriOlahragas as $kategoriOlahraga)
+                                            <option value="{{ $kategoriOlahraga->id }}"> {{ $kategoriOlahraga->namaOlahraga}}</option>
+                                        @endforeach
+                                       
+                                    </select>       
+                                  
+                               
+                                          
+                                  </div>
                                 </div>
                 
                                 <div class="form-group row">
@@ -100,15 +116,15 @@
                 
                                 <div class="form-group row">
                                   <label class="col-md-4 col-form-label text-md-right">Foto Profil</label>
-                                  <div class="col-sm-4">
-                                    <input type="file" name="imgURL" required>      
+                                  <div class="col-sm-6">
+                                    <input type="file" name="profpic">      
                                   </div>
                                 </div>
                 
                                 <div class="form-group row">
                                   <label class="col-md-4 col-form-label text-md-right">CV</label>
-                                  <div class="col-sm-4">
-                                    <input type="file" name="cv" size="20"/>      
+                                  <div class="col-sm-6">
+                                    <input type="file" name="cv">      
                                   </div>
                                 </div>
                 

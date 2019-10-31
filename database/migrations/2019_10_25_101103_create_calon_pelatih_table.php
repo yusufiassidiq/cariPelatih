@@ -15,11 +15,12 @@ class CreateCalonPelatihTable extends Migration
     {
         Schema::create('calon_pelatih', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('nama');
             $table->unsignedInteger('class_user_id')->default('2');
             $table->string('status')->default('Menunggu Konfirmasi');
             // $table->foreign('class_user_id')->references('id')->on('class_users');
             $table->string('email')->unique();
+            $table->string('kategoriOlahraga')->nullable();
             $table->string('profpic')->default('defaultPicture.jpg');
             $table->string('cv')->default('defaultCV.jpg');
             $table->string('telp')->nullable();

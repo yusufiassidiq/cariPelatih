@@ -11,19 +11,20 @@
 |
 */
 Route::get('/', function () {
-	// if(!Auth::check()){
+		if(!Auth::check()){
+			return redirect('/home');
+		 }
+		// return redirect('/home');
+		  
+		if(Auth::user()->ClassUser->ClassUser == 'Pencari'){
 		return redirect('/home');
-	//  }
-//     if(Auth::user()->ClassUser->ClassUser == 'Pencari'){
-//     // return view('welcome');
-// 	return redirect('/home');
-// 	 }
-// 	 if(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
-// 		 return redirect('/pelatih');
-// 	 }
-// 	 if(Auth::user()->ClassUser->ClassUser == 'Admin'){
-// 		 return redirect('/admin');
-	//  }
+	 }
+	 	if(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
+		 return redirect('/pelatih');
+	 }
+	 	if(Auth::user()->ClassUser->ClassUser == 'Admin'){
+		 return redirect('/admin');
+	 }
 });
 
 //ADMIN
@@ -43,19 +44,21 @@ Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], 
 //PENCARI
 Route::group(['prefix' => 'home', 'middleware' => ['auth', 'role:Pencari']], function()
 {
-    Route::get('/', 'PencariController@index')->name('pencari.dashboard');
+	Route::get('/', 'PencariController@index')->name('pencari.dashboard');
 });
 
-Route::get('/home', function () {
-    return view('welcome');
-})->name('welcome');
+
 
 Auth::routes();
+
 
 //GUEST
 Route::post('/addPelatih', 'PelatihController@addPelatih')->name('addPelatih');
 Route::get('/registerPelatih', 'PelatihController@registerPelatih')->name('registerPelatih');
-// Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/list_pelatih', 'PencariController@list_pelatih')->name('list_pelatih');
 
-// Route::get('/home', 'PencariController@index')->name('home');
+	// Route::get('/home', function () {
+	// 	return view('welcome');
+	// })->name('welcome');
+
+Route::get('/home','PencariController@index')->name('home');
+Route::get('/list_pelatih', 'PencariController@list_pelatih')->name('list_pelatih');
