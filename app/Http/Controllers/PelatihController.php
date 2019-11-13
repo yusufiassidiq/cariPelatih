@@ -7,6 +7,10 @@ use App\CalonPelatih;
 use Validator;
 use File;
 use Hash;
+use App\User;
+use App\KategoriOlahraga;
+use Auth;
+use Ap\Pelatih;
 
 class PelatihController extends Controller
 {
@@ -14,13 +18,11 @@ class PelatihController extends Controller
     {
         return view('pelatih.dashboard');
     }
-
     public function registerPelatih()
     {
-        return view('pelatih.register_pelatih');
+        $kategoriOlahragas = KategoriOlahraga::all();
+        return view('pelatih.register_pelatih', compact('kategoriOlahragas'));
     }
-    
-
     public function addPelatih(Request $request){
         $messages = [
             'required' => 'Tolong isi form :attribute',
@@ -30,46 +32,75 @@ class PelatihController extends Controller
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'imgURL' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'profpic' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'cv' => 'required|image|mimes:jpeg,png,jpg|max:2048',
  
         ], $messages);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
-
-        $imgURL = $request->file('imgURL');
-        if(isset($imgURL))
-        {
-        $namaimgURL = time()."_".$imgURL->getClientOriginalName();
-        // $namaProfpic = "asd";
+        
+        $profpic = $request->file('profpic');
+        if(!empty($profpic)){
+        $namaprofpic = time()."_".$profpic->getClientOriginalName();
         // isi dengan nama folder tempat kemana gambar diupload
-		$tujuan_upload = 'pelatih/profpic';
-        $imgURL->move($tujuan_upload,$namaimgURL);
+		$tujuan_upload = 'pelatihfile/profpic';
+        $profpic->move($tujuan_upload,$namaprofpic);
         }
-        else{
-            dd("asd");
+
+        $cv = $request->file('cv');
+        if(!empty($cv)){
+        $namacv = time()."_".$cv->getClientOriginalName();
+        // isi dengan nama folder tempat kemana gambar diupload
+		$tujuan_upload = 'pelatihfile/cv';
+        $cv->move($tujuan_upload,$namacv);
         }
-        
-        
+        $idkategori = $request->kategoriOlahraga;
+        $kategori = KategoriOlahraga::find($idkategori);
+        // dd($kategori);
         $calonPelatih = new CalonPelatih([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'email' => $request->email,
             // 'facebook' => $request->facebook,
             // 'instagram' => $request->instagram,
+            'kategoriOlahraga' =>$kategori->namaOlahraga,
             'telp' => $request->telp,
             'tarif' => $request->tarif,
-            'profpic' => $namaimgURL,
+            'profpic' => $namaprofpic,
+            'cv' => $namacv,
             'class_user_id' => '2',
             'status' => 'Menunggu Konfirmasi', 
             'password' => (Hash::make($request->password)),
         ]);
-        
         $calonPelatih->save();
         
-        // return redirect()
-        //     ->route('welcome')
-        //     ->with(['success' => 'Pendaftaran anda berhasil! Verifikasi akan dilakukan oleh pihak kami']);        
+        return redirect()
+            ->route('registerPelatih')
+            ->with(['success' => 'Pendaftaran anda berhasil! Verifikasi akan dilakukan oleh pihak kami']);        
+    }
+
+    public function list_pelatih()
+    {
+        // $pelatih = User::where()
+        if (Auth::guest()){
+            $kategoriOlahragas = KategoriOlahraga::all();
+            $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+            // $listpelatih = array()
+            // dd($pelatihs);
+        return view('list_pelatih',compact('pelatihs'));
+        }
+        if (Auth::user()->ClassUser->ClassUser == 'Pencari'){
+            $kategoriOlahragas = KategoriOlahraga::all();
+        return view('list_pelatih');
+        }
+        elseif(Auth::user()->ClassUser->ClassUser == 'Admin'){
+            return redirect('/admin');
+        }
+        elseif(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
+            return redirect('/pelatih');
+        }
+        
     }
 }

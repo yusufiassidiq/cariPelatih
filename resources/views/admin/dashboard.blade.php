@@ -31,7 +31,7 @@
                                 <tr>
                            
                                     <td>{{$i++}}</td>
-                                    <td>{{$calonPelatih->name}}</td>
+                                    <td>{{$calonPelatih->nama}}</td>
                                     <td>{{$calonPelatih->email}}</td>
                                     <td>{{$calonPelatih->status}}</td>
                                     <td>

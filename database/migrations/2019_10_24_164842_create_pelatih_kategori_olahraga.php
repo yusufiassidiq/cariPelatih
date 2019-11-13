@@ -13,13 +13,13 @@ class CreatePelatihKategoriOlahraga extends Migration
      */
     public function up()
     {
-        Schema::create('pelatih_kategoriOlahraga', function (Blueprint $table) {
+        Schema::create('kategori_olahraga_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedbigInteger('pelatih_id');
-            $table->foreign('pelatih_id')
+            $table->unsignedbigInteger('user_id');
+            $table->foreign('user_id')
                 ->references('id')->on('users');
-            $table->unsignedbigInteger('namaOlahraga_id');
-            $table->foreign('namaOlahraga_id')
+            $table->unsignedbigInteger('kategori_olahraga_id');
+            $table->foreign('kategori_olahraga_id')
                 ->references('id')->on('kategori_olahraga');
             $table->timestamps();
         });
