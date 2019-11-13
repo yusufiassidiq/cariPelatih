@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Uptown - Free Bootstrap 4 Template by Colorlib</title>
+    <title>CariPelatih</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -49,7 +49,7 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="home" class="nav-link">Home</a></li>
 	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Agent</a></li>
+	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Pelatih</a></li>
 	          <!-- <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
 	          <!-- <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li> -->
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
