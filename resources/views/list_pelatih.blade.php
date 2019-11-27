@@ -4,7 +4,7 @@
 
         
 
-    <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('images/listpelatihpict.jpg');" data-stellar-background-ratio="0.8">
+    <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('/images/listpelatihpict.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
