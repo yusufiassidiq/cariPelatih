@@ -39,7 +39,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], func
 //PELATIH
 Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], function()
 {
-    Route::get('/', 'PelatihController@index')->name('pelatih.dashboard');
+	Route::get('/', 'PelatihController@index')->name('pelatih.dashboard');
+	Route::get('/history', 'PelatihController@history')->name('pelatih.history');
+	Route::get('/pekerjaan', 'PelatihController@pekerjaan')->name('pelatih.pekerjaan');
 });
 
 //PENCARI

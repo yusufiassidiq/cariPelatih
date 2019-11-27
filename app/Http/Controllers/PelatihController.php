@@ -108,4 +108,12 @@ class PelatihController extends Controller
             return view('list_pelatih',compact('pelatihs','kategoriOlahragas'));
             }
         }
+
+        public function history(){
+            return view('pelatih.history');
+        }
+
+        public function pekerjaan(){
+            return view('pelatih.pekerjaan');
+        }
 }
