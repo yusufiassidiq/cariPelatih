@@ -4,7 +4,7 @@
 
         
 
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/homepict.jpg');" data-stellar-background-ratio="0.8">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('/images/homepict.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-center align-items-center">

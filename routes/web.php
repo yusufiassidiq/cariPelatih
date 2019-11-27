@@ -58,9 +58,7 @@ Route::post('/addPelatih', 'PelatihController@addPelatih')->name('addPelatih');
 Route::post('/list_pelatih', 'PelatihController@list_pelatih')->name('filterPelatih');
 Route::get('/registerPelatih', 'PelatihController@registerPelatih')->name('registerPelatih');
 
-	// Route::get('/home', function () {
-	// 	return view('welcome');
-	// })->name('welcome');
+Route::get('/profile/{id}', 'PelatihController@showProfile')->name('showProfilePelatih');
 
 Route::get('/home','PencariController@index')->name('home');
 Route::get('/list_pelatih', 'PelatihController@list_pelatih')->name('list_pelatih');

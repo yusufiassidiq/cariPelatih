@@ -4,7 +4,7 @@
 
         
 
-    <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('images/listpelatihpict.jpg');" data-stellar-background-ratio="0.8">
+    <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('/images/listpelatihpict.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -70,9 +70,11 @@
     	<div class="container">
         <div class="row">
 		@foreach ($pelatihs as $pelatih)
-        	<div class="col-md-3">
+		
+        	<div class="col-md-3" >
 				<div class="property-wrap ftco-animate">
-					<div class="agent">
+				<a href="{{ route('showProfilePelatih',$pelatih->id) }}">
+					<div class="agent" >
 						<div class="img" style="height:200px; max-height:200px">
 							<img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
 						</div>
@@ -80,13 +82,15 @@
 							<p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/jam</small></span></p>
 							<h3><a href="properties-single.html">{{$pelatih->nama}}</a></h3>
 							<span class="location">{{$pelatih->kategoriOlahraga[0]->namaOlahraga}}</span>
-							<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+							<a href="{{ route('showProfilePelatih',$pelatih->id) }}" class="d-flex align-items-center justify-content-center btn-custom">
 								<span class="ion-ios-link"></span>
 							</a>
 						</div>
 					</div>
         		</div>
+				</a>
         	</div>
+		
         @endforeach
         </div>
     	</div>
