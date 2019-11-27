@@ -21,47 +21,52 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12">
-					<div class="card">
-						<!-- <div class="card-header">{{ __('Register Pelatih') }}</div> -->
-                
-                        	<div class="card-body">
-                        	    <form method="POST" action="{{ route('filterPelatih') }}" enctype="multipart/form-data">
-                        	        @csrf
-
-									<div class="container-fluid">
-										<div class="row">
-										<label class="col-md-2 col-form-label text-md-center">Kategori Olahraga</label>
-											<div class="col-md-2.5">
-												<select name="kategoriOlahraga" id="" class="form-control center" required> 
-                                        			<option selected="selected" value="" hidden disabled selected >Pilih Kategori Olahraga</option> 
-													<option value="all"> Semua </option>
-                                        				@foreach ($kategoriOlahragas as $kategoriOlahraga)
-															
-                                            				<option value="{{ $kategoriOlahraga->id }}"> {{ $kategoriOlahraga->namaOlahraga}}</option>
-                                        				@endforeach
-                                    			</select>
-											</div>
-										<label class="col-md-2 col-form-label text-md-center">Tarif</label>
-											<div class="col-md-2">
-												<select name="tarif" id="" class="form-control center" required> 
-                                        			<option selected="selected" value="" hidden disabled selected >Urutkan dari</option> 
-                                        			<option value="asc">Terkecil</option>
-													<option value="desc">Terbesar</option>
-													
-                                    			</select>
-											</div>
-											<div class="col-md-2">
-												<button type="submit" class="btn btn-sm btn-outline-info btn-block">
-													Cari
-												</button>
-											</div>
-										</div>
-									</div>
-								</form>
-								
-							</div>
-						<!-- </div> -->
-					</div>
+          <div class="s010">
+            <form method="POST" action="{{ route('filterPelatih') }}" enctype="multipart/form-data">
+            @csrf
+              <div class="inner-form">
+                <div class="advance-search">
+                  <span class="desc">FILTER SEARCH</span>
+                  <div class="row">
+                    <div class="input-field">
+                      <div class="input-select">
+                        <select data-trigger="" name="kategoriOlahraga" required>
+                          <option placeholder="" value="">Kategori Olahraga</option>
+                          <option value="all">All</option>
+                          @foreach($kategoriOlahragas as $kategoriOlahraga)
+                          <option value="{{ $kategoriOlahraga->id }}">{{ $kategoriOlahraga->namaOlahraga }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-field">
+                      <div class="input-select">
+                        <select data-trigger="" name="tarif" required>
+                          <option placeholder="" value="">Urutkan Tarif</option>
+                          <option value="asc">Terkecil</option>
+                          <option value="desc">Terbesar</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-field">
+                      <div class="input-select">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row third">
+                    <div class="input-field">
+                      <div class="result-count">
+                        <span>108 </span>results</div>
+                      <div class="group-btn">
+                        <button class="btn-delete" id="delete">RESET</button>
+                        <button class="btn-search" type="submit">SEARCH</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
 				</div>
 			</div>
 		</div>
