@@ -74,24 +74,24 @@
 		<section class="ftco-section ftco-agent">
     	<div class="container">
         <div class="row">
-		@foreach ($pelatihs as $pelatih)
+        @foreach ($pelatihs as $pelatih)
         	<div class="col-md-3">
-				<div class="property-wrap ftco-animate">
-					<div class="agent">
-						<div class="img" style="height:200px; max-height:200px">
-							<img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
-						</div>
-						<div class="text">
-							<p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/jam</small></span></p>
-							<h3><a href="properties-single.html">{{$pelatih->nama}}</a></h3>
-							<span class="location">{{$pelatih->kategoriOlahraga[0]->namaOlahraga}}</span>
-							<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-        		</div>
-        	</div>
+            <div class="property-wrap ftco-animate">
+              <div class="agent">
+                <div class="img" style="height:200px; max-height:200px">
+                  <img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
+                </div>
+                <div class="text">
+                  <p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/jam</small></span></p>
+                  <h3><a href="properties-single.html">{{$pelatih->nama}}</a></h3>
+                  <span class="location">{{$pelatih->kategoriOlahraga[0]->namaOlahraga}}</span>
+                  <a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+                    <span class="ion-ios-link"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         @endforeach
         </div>
     	</div>
