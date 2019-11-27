@@ -16,8 +16,56 @@
       </div>
     </section>
 	
-		
-	
+		<br>
+		<br>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12">
+					<div class="card">
+						<!-- <div class="card-header">{{ __('Register Pelatih') }}</div> -->
+                
+                        	<div class="card-body">
+                        	    <form method="POST" action="{{ route('filterPelatih') }}" enctype="multipart/form-data">
+                        	        @csrf
+
+									<div class="container-fluid">
+										<div class="row">
+										<label class="col-md-2 col-form-label text-md-center">Kategori Olahraga</label>
+											<div class="col-md-2.5">
+												<select name="kategoriOlahraga" id="" class="form-control center"> 
+                                        			<option selected="selected" value="" hidden disabled selected >Pilih Kategori Olahraga</option> 
+													<option value="all"> Semua </option>
+                                        				@foreach ($kategoriOlahragas as $kategoriOlahraga)
+															
+                                            				<option value="{{ $kategoriOlahraga->id }}"> {{ $kategoriOlahraga->namaOlahraga}}</option>
+                                        				@endforeach
+                                    			</select>
+											</div>
+										<label class="col-md-2 col-form-label text-md-center">Harga</label>
+											<div class="col-md-2">
+												<select name="harga" id="" class="form-control center"> 
+                                        			<option selected="selected" value="" disabled selected >Pilih Harga</option> 
+                                        			<option value="">> Rp1.000.000</option>
+													<option value="">> Rp500.000</option>
+													<option value="">< Rp500.000</option>
+                                    			</select>
+											</div>
+											<div class="col-md-2">
+												<button type="submit" class="btn btn-sm btn-outline-info btn-block">
+													Cari
+												</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								
+							</div>
+						<!-- </div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<section class="ftco-section ftco-agent">
     	<div class="container">
         <div class="row">
@@ -26,7 +74,7 @@
 				<div class="property-wrap ftco-animate">
 					<div class="agent">
 						<div class="img">
-							<img src="images/team-1.jpg" class="img-fluid" alt="Colorlib Template">
+							<img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
 						</div>
 						<div class="text">
 							<p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/mo</small></span></p>

@@ -81,26 +81,30 @@ class PelatihController extends Controller
             ->with(['success' => 'Pendaftaran anda berhasil! Verifikasi akan dilakukan oleh pihak kami']);        
     }
 
-    public function list_pelatih()
-    {
-        // $pelatih = User::where()
-        if (Auth::guest()){
-            $kategoriOlahragas = KategoriOlahraga::all();
-            $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
-            // $listpelatih = array()
-            // dd($pelatihs);
-        return view('list_pelatih',compact('pelatihs'));
+        public function list_pelatih(Request $request){
+            $kategori = $request->kategoriOlahraga;
+            
+            if(!Auth::guest() && Auth::user()->ClassUser->ClassUser == 'Admin'){
+                return redirect('/admin');
+            }
+            elseif(!Auth::guest() && Auth::user()->ClassUser->ClassUser == 'Pelatih'){
+                return redirect('/pelatih');
+            }
+            else{
+                if($kategori){
+                    if ($kategori == "all"){
+                        $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+                    }else{
+                        $pelatihs = User::where('class_user_id',"2")->whereHas('kategoriOlahraga',function($query)use($kategori){
+                            $query->where('kategori_olahraga_id',$kategori);
+                        })->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+                    }   
+                }else{
+                    $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+                }
+                $kategoriOlahragas = KategoriOlahraga::all();
+
+            return view('list_pelatih',compact('pelatihs','kategoriOlahragas'));
+            }
         }
-        if (Auth::user()->ClassUser->ClassUser == 'Pencari'){
-            $kategoriOlahragas = KategoriOlahraga::all();
-        return view('list_pelatih');
-        }
-        elseif(Auth::user()->ClassUser->ClassUser == 'Admin'){
-            return redirect('/admin');
-        }
-        elseif(Auth::user()->ClassUser->ClassUser == 'Pelatih'){
-            return redirect('/pelatih');
-        }
-        
-    }
 }

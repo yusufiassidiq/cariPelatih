@@ -54,6 +54,7 @@ Auth::routes();
 
 //GUEST
 Route::post('/addPelatih', 'PelatihController@addPelatih')->name('addPelatih');
+Route::post('/list_pelatih', 'PelatihController@list_pelatih')->name('filterPelatih');
 Route::get('/registerPelatih', 'PelatihController@registerPelatih')->name('registerPelatih');
 
 	// Route::get('/home', function () {

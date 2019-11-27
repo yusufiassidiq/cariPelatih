@@ -10,7 +10,7 @@
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
           	<div class="text text-center">
-	            <h1 class="mb-4">The Simplest <br>Way to Find Property</h1>
+	            <h1 class="mb-4">The Simplest <br>Way to Find Coach</h1>
 	            <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
 	            <form action="#" class="search-location mt-md-5">
 		        		<div class="row justify-content-center">
