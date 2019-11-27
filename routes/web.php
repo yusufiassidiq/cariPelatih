@@ -64,3 +64,5 @@ Route::get('/profile/{id}', 'PelatihController@showProfile')->name('showProfileP
 
 Route::get('/home','PencariController@index')->name('home');
 Route::get('/list_pelatih', 'PelatihController@list_pelatih')->name('list_pelatih');
+
+Route::get('/list_booking', 'PencariController@list_booking')->middleware('auth')->name('list_booking');

@@ -53,20 +53,19 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <!-- <li class="nav-item"> -->
-                                <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Register <span class="caret"></span>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{route('registerPelatih')}}">
+                                    Register
                                 </a>
-                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('register') }}">Sebagai Pencari</a>
-                                        <a class="dropdown-item" href="{{ route('registerPelatih') }}">Sebagai Pelatih</a>
-                                          
-                                    </div>
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{route('list_booking')}}">
+                                  Booking
+                              </a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->nama }} <span class="caret"></span>

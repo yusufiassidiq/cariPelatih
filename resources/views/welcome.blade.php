@@ -13,12 +13,12 @@
 	            <form action="#" class="search-location mt-md-5">
 		        		<div class="row justify-content-center">
 		        			<div class="col-lg-10 align-items-end">
-		        				<div class="form-group">
+		        				<!-- <div class="form-group">
 		          				<div class="form-field">
 				                <input type="text" class="form-control" placeholder="Cari nama olahraga">
 				                <button><span class="ion-ios-search"></span></button>
 				              </div>
-			              </div>
+			              </div> -->
 		        			</div>
 		        		</div>
 		        	</form>
