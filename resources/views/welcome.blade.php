@@ -249,7 +249,7 @@ $('.carousel').carousel({
     <section class="ftco-section ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/woman-jumping-with-ball-2825819.jpg);">
 					</div>
 					<div class="col-md-6 wrap-about py-md-5 ftco-animate">
 	          <div class="heading-section p-md-5">
@@ -312,48 +312,73 @@ $('.carousel').carousel({
         </div>
         <div class="row">
         	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
 		    				<img src="images/team-1.jpg" class="img-fluid" alt="Colorlib Template">
 	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
+        			<div class="text">
+                <h3><a href="properties-single.html">Bambang Pamungkas</a></h3>
+                <!-- <ul class="property_list">
+        					<li><span class="flaticon-file"></span>Sepak Bola</li>
+        				</ul> -->
+                <span class="location">Jakarta</span>
+                <p class="price"><span class="orig-price">Rp50.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
         	</div>
         	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
 		    				<img src="images/team-2.jpg" class="img-fluid" alt="Colorlib Template">
 	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
+        			<div class="text">
+        				<h3><a href="properties-single.html">James Stallon</a></h3>
+                <span class="location">Bogor</span>
+                <p class="price"><span class="orig-price">Rp45.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
         	</div>
         	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
 		    				<img src="images/team-3.jpg" class="img-fluid" alt="Colorlib Template">
 	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
+        			<div class="text">
+                <h3><a href="properties-single.html">Siti Julaeha</a></h3>
+                <!-- <ul class="property_list">
+        					<li><span class="flaticon-file"></span>Sepak Bola</li>
+        				</ul> -->
+                <span class="location">Bandung</span>
+                <p class="price"><span class="orig-price">Rp40.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
         	</div>
         	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
 		    				<img src="images/team-4.jpg" class="img-fluid" alt="Colorlib Template">
 	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="position">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
+        			<div class="text">
+                <h3><a href="properties-single.html">Titania</a></h3>
+                <!-- <ul class="property_list">
+        					<li><span class="flaticon-file"></span>Sepak Bola</li>
+        				</ul> -->
+                <span class="location">Jakarta</span>
+                <p class="price"><span class="orig-price">Rp50.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
         	</div>
         </div>
     	</div>

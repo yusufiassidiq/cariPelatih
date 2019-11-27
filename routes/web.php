@@ -13,8 +13,7 @@
 Route::get('/', function () {
 		if(!Auth::check()){
 			return redirect('/home');
-		 }
-		// return redirect('/home');
+		}
 		  
 		if(Auth::user()->ClassUser->ClassUser == 'Pencari'){
 		return redirect('/home');
@@ -31,6 +30,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], function()
 {
 	Route::get('/', 'AdminController@index')->name('Admin.dashboard');
+	Route::get('/pembayaran', 'AdminController@pembayaran')->name('Admin.pembayaran');
+	Route::get('/pengguna', 'AdminController@pengguna')->name('Admin.pengguna');
 	Route::delete('/calonPelatih/deleteCalonPelatih/{id}', 'AdminController@deleteCalonPelatih')->name('Admin.deleteCalonPelatih');
 	Route::get('/calonPelatih/terimaCalonPelatih/{id}','AdminController@terimaCalonPelatih')->name('Admin.terimaCalonPelatih');
 });
