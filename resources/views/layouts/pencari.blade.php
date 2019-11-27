@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Uptown - Free Bootstrap 4 Template by Colorlib</title>
+    <title>CariPelatih</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -14,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -29,7 +28,6 @@
 
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
     
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
@@ -49,7 +47,7 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="home" class="nav-link">Home</a></li>
 	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Agent</a></li>
+	          <li class="nav-item"><a href="list_pelatih" class="nav-link">Pelatih</a></li>
 	          <!-- <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
 	          <!-- <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li> -->
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>

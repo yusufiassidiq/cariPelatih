@@ -4,20 +4,21 @@
 
         
 
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/coach_2.jpg');" data-stellar-background-ratio="0.8">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/47040.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
           	<div class="text text-center">
-	            <h1 class="mb-4">The Simplest <br>Way to Find Coach</h1>
-	            <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
+	            <h1 class="mb-4">Cara Mudah <br>Temukan Pelatih</h1>
+              <p style="font-size: 18px;">Tersedia lebih dari 100 pelatih professional. Ayo, temukan pelatih yang kompeten di bidangnya dan booking sekarang!</p>
+	            <!-- <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p> -->
 	            <form action="#" class="search-location mt-md-5">
 		        		<div class="row justify-content-center">
 		        			<div class="col-lg-10 align-items-end">
 		        				<div class="form-group">
 		          				<div class="form-field">
-				                <input type="text" class="form-control" placeholder="Search location">
+				                <input type="text" class="form-control" placeholder="Cari nama olahraga">
 				                <button><span class="ion-ios-search"></span></button>
 				              </div>
 			              </div>
@@ -35,7 +36,7 @@
 			</div>
     </div>
 
-    <section class="ftco-section ftco-no-pb">
+    <!-- <section class="ftco-section ftco-no-pb">
       <div class="container">
       	<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -82,7 +83,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- <section class="ftco-section goto-here">
     	<div class="container">
@@ -155,7 +156,7 @@
             <div class="row justify-content-center">
         <div class="col-md-12 heading-section text-center ftco-animate mb-5">
           	<span class="subheading">What we offer</span>
-            <h2 class="mb-2">Sports Category</h2>
+            <h2 class="mb-2">Kategori Olahraga</h2>
         </div>
     </div>
       <div class="carousel slide" data-ride="carousel" id="multi_item">
@@ -197,7 +198,7 @@ $('.carousel').carousel({
     		<div class="row justify-content-start mb-5">
           <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
           	<span class="subheading">Work flow</span>
-            <h2 class="mb-3">How it works</h2>
+            <h2 class="mb-3">Cara Booking Pelatih</h2>
           </div>
         </div>
     		<div class="row">
@@ -207,8 +208,8 @@ $('.carousel').carousel({
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
-		                <h3>Evaluate Property</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <h3>Pilih Pelatih</h3>
+                    <p>Tentukan pelatih berdasarkan profile, harga, dan review</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -216,8 +217,8 @@ $('.carousel').carousel({
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
-		                <h3>Meet Your Agent</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <h3>Booking Pelatih</h3>
+                    <p>Atur jadwal latihan sesuai dengan waktu yang tersedia</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -225,8 +226,8 @@ $('.carousel').carousel({
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
-		                <h3>Close the Deal</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>Tunggu Konfirmasi</h3>
+		                <p>Berikan waktu kepada pelatih untuk menerima atau menolak permintaan booking</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -234,8 +235,8 @@ $('.carousel').carousel({
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
-		                <h3>Have Your Property</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>Latihan Sesuai Jadwal</h3>
+		                <p>Apabila permintaan diterima, segera hubungi pelatih untuk memulai latihan</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -248,7 +249,7 @@ $('.carousel').carousel({
     <section class="ftco-section ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/woman-jumping-with-ball-2825819.jpg);">
 					</div>
 					<div class="col-md-6 wrap-about py-md-5 ftco-animate">
 	          <div class="heading-section p-md-5">
@@ -268,32 +269,32 @@ $('.carousel').carousel({
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18 py-4 mb-4">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="305">0</strong>
-                <span>Area <br>Population</span>
+                <strong class="number" data-number="5">0</strong>
+                <span>Kategori <br>Olahraga</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18 py-4 mb-4">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="1090">0</strong>
-                <span>Total <br>Properties</span>
+                <strong class="number" data-number="164">0</strong>
+                <span>Total <br>Pelatih</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18 py-4 mb-4">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="209">0</strong>
-                <span>Average <br>House</span>
+                <strong class="number" data-number="324">0</strong>
+                <span>Total <br>Booking</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18 py-4 mb-4">
               <div class="text d-flex align-items-center">
-                <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
+                <strong class="number" data-number="303">0</strong>
+                <span>Happy <br>Clients</span>
               </div>
             </div>
           </div>
@@ -301,7 +302,89 @@ $('.carousel').carousel({
     	</div>
     </section>
 
-    <section class="ftco-section testimony-section">
+     <section class="ftco-section ftco-agent">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<span class="subheading">Pelatih</span>
+            <h2 class="mb-4">Terpopuler Bulan Ini</h2>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-3 ftco-animate">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
+		    				<img src="images/team-1.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+        			<div class="text">
+                <h3><a href="properties-single.html">Bambang Pamungkas</a></h3>
+                <!-- <ul class="property_list">
+        					<li><span class="flaticon-file"></span>Sepak Bola</li>
+        				</ul> -->
+                <span class="location">Jakarta</span>
+                <p class="price"><span class="orig-price">Rp50.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
+		    				<img src="images/team-2.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+        			<div class="text">
+        				<h3><a href="properties-single.html">James Stallon</a></h3>
+                <span class="location">Bogor</span>
+                <p class="price"><span class="orig-price">Rp45.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
+		    				<img src="images/team-3.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+        			<div class="text">
+                <h3><a href="properties-single.html">Siti Julaeha</a></h3>
+                <!-- <ul class="property_list">
+        					<li><span class="flaticon-file"></span>Sepak Bola</li>
+        				</ul> -->
+                <span class="location">Bandung</span>
+                <p class="price"><span class="orig-price">Rp40.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+            <div class="property-wrap ftco-animate agent">
+              <div class="img">
+		    				<img src="images/team-4.jpg" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+        			<div class="text">
+                <h3><a href="properties-single.html">Titania</a></h3>
+                <!-- <ul class="property_list">
+        					<li><span class="flaticon-file"></span>Sepak Bola</li>
+        				</ul> -->
+                <span class="location">Jakarta</span>
+                <p class="price"><span class="orig-price">Rp50.000<small>/jam</small></span></p>
+        				<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-eye"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section testimony-section ftco-no-pt">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -387,64 +470,6 @@ $('.carousel').carousel({
         </div>
       </div>
     </section>
-
-    <section class="ftco-section ftco-agent ftco-no-pt">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Agents</span>
-            <h2 class="mb-4">Our Agents</h2>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="images/team-1.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="images/team-2.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="images/team-3.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="images/team-4.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.html">James Stallon</a></h3>
-								<p class="h-info"><span class="position">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
-
 
     <section class="ftco-section ftco-no-pt">
       <div class="container">

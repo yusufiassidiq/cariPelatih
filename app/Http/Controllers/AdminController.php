@@ -21,8 +21,16 @@ class AdminController extends Controller
         // return view('admin.dashboard');
     }
 
+    // fungsi untuk pindah ke halaman pembayaran
+    public function pembayaran(){
+        return view('admin.pembayaran');
+    }    
     
-    
+    // fungsi untuk pindah ke halaman pengguna
+    public function pengguna(){
+        return view('admin.pengguna');
+    }    
+
     public function deleteCalonPelatih($id){
         $calonPelatih = CalonPelatih::find($id);
         $calonPelatih->delete();
