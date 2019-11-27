@@ -83,7 +83,8 @@ class PelatihController extends Controller
 
         public function list_pelatih(Request $request){
             $kategori = $request->kategoriOlahraga;
-            
+            $tarif = $request->tarif;
+            // if($tarif == "asc") $orderBy = "asc";else $orderBy = "desc";
             if(!Auth::guest() && Auth::user()->ClassUser->ClassUser == 'Admin'){
                 return redirect('/admin');
             }
@@ -93,11 +94,11 @@ class PelatihController extends Controller
             else{
                 if($kategori){
                     if ($kategori == "all"){
-                        $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+                        $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->orderBy('tarif', $tarif)->with('kategoriOlahraga')->get();
                     }else{
                         $pelatihs = User::where('class_user_id',"2")->whereHas('kategoriOlahraga',function($query)use($kategori){
                             $query->where('kategori_olahraga_id',$kategori);
-                        })->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
+                        })->has('kategoriOlahraga')->orderBy('tarif', $tarif)->with('kategoriOlahraga')->get();
                     }   
                 }else{
                     $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();

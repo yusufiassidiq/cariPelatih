@@ -4,13 +4,13 @@
 
         
 
-    <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('images/coach_2.jpg');" data-stellar-background-ratio="0.8">
+    <section class="hero-wrap ftco-degree-bg js-fullheight" style="background-image: url('images/listpelatihpict.jpg');" data-stellar-background-ratio="0.8">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Agent <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Agent</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pelatih <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Pelatih</h1>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
 										<div class="row">
 										<label class="col-md-2 col-form-label text-md-center">Kategori Olahraga</label>
 											<div class="col-md-2.5">
-												<select name="kategoriOlahraga" id="" class="form-control center"> 
+												<select name="kategoriOlahraga" id="" class="form-control center" required> 
                                         			<option selected="selected" value="" hidden disabled selected >Pilih Kategori Olahraga</option> 
 													<option value="all"> Semua </option>
                                         				@foreach ($kategoriOlahragas as $kategoriOlahraga)
@@ -41,13 +41,13 @@
                                         				@endforeach
                                     			</select>
 											</div>
-										<label class="col-md-2 col-form-label text-md-center">Harga</label>
+										<label class="col-md-2 col-form-label text-md-center">Tarif</label>
 											<div class="col-md-2">
-												<select name="harga" id="" class="form-control center"> 
-                                        			<option selected="selected" value="" disabled selected >Pilih Harga</option> 
-                                        			<option value="">> Rp1.000.000</option>
-													<option value="">> Rp500.000</option>
-													<option value="">< Rp500.000</option>
+												<select name="tarif" id="" class="form-control center" required> 
+                                        			<option selected="selected" value="" hidden disabled selected >Urutkan dari</option> 
+                                        			<option value="asc">Terkecil</option>
+													<option value="desc">Terbesar</option>
+													
                                     			</select>
 											</div>
 											<div class="col-md-2">
@@ -73,11 +73,11 @@
         	<div class="col-md-3">
 				<div class="property-wrap ftco-animate">
 					<div class="agent">
-						<div class="img">
+						<div class="img" style="height:200px; max-height:200px">
 							<img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
 						</div>
 						<div class="text">
-							<p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/mo</small></span></p>
+							<p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/jam</small></span></p>
 							<h3><a href="properties-single.html">{{$pelatih->nama}}</a></h3>
 							<span class="location">{{$pelatih->kategoriOlahraga[0]->namaOlahraga}}</span>
 							<a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
