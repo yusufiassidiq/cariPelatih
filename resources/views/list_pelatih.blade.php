@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pelatih <i class="ion-ios-arrow-forward"></i></span></p>
+          	<!-- <p class="breadcrumbs"><span class="mr-2"><a href="home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pelatih <i class="ion-ios-arrow-forward"></i></span></p> -->
             <h1 class="mb-3 bread">Pelatih</h1>
           </div>
         </div>
@@ -74,28 +74,24 @@
 		<section class="ftco-section ftco-agent">
     	<div class="container">
         <div class="row">
-		@foreach ($pelatihs as $pelatih)
-		
-        	<div class="col-md-3" >
-				<div class="property-wrap ftco-animate">
-				<a href="{{ route('showProfilePelatih',$pelatih->id) }}">
-					<div class="agent" >
-						<div class="img" style="height:200px; max-height:200px">
-							<img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
-						</div>
-						<div class="text">
-							<p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/jam</small></span></p>
-							<h3><a href="properties-single.html">{{$pelatih->nama}}</a></h3>
-							<span class="location">{{$pelatih->kategoriOlahraga[0]->namaOlahraga}}</span>
-							<a href="{{ route('showProfilePelatih',$pelatih->id) }}" class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-        		</div>
-				</a>
-        	</div>
-		
+        @foreach ($pelatihs as $pelatih)
+        	<div class="col-md-3">
+            <div class="property-wrap ftco-animate">
+              <div class="agent">
+                <div class="img" style="height:200px; max-height:200px">
+                  <img src="{{url('pelatihfile/profpic/'.$pelatih->profpic)}}" class="img-fluid" alt="Colorlib Template">
+                </div>
+                <div class="text">
+                  <p class="price"><span class="orig-price">Rp.{{$pelatih->tarif}}<small>/jam</small></span></p>
+                  <h3><a href="properties-single.html">{{$pelatih->nama}}</a></h3>
+                  <span class="location">{{$pelatih->kategoriOlahraga[0]->namaOlahraga}}</span>
+                  <a href="properties-single.html" class="d-flex align-items-center justify-content-center btn-custom">
+                    <span class="ion-ios-link"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         @endforeach
         </div>
     	</div>

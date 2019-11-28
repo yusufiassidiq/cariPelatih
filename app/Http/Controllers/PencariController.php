@@ -26,5 +26,8 @@ class PencariController extends Controller
         }
     }
 
+    public function list_booking(){
+        return view('pencari.booking');
+    }
     
 }

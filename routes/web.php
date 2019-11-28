@@ -39,7 +39,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:Admin']], func
 //PELATIH
 Route::group(['prefix' => 'pelatih', 'middleware' => ['auth', 'role:Pelatih']], function()
 {
-    Route::get('/', 'PelatihController@index')->name('pelatih.dashboard');
+	Route::get('/', 'PelatihController@index')->name('pelatih.dashboard');
+	Route::get('/history', 'PelatihController@history')->name('pelatih.history');
+	Route::get('/pekerjaan', 'PelatihController@pekerjaan')->name('pelatih.pekerjaan');
 });
 
 //PENCARI
@@ -63,3 +65,5 @@ Route::post('/book','BookingController@bookPelatih')->name('bookPelatih');
 
 Route::get('/home','PencariController@index')->name('home');
 Route::get('/list_pelatih', 'PelatihController@list_pelatih')->name('list_pelatih');
+
+Route::get('/list_booking', 'PencariController@list_booking')->middleware('auth')->name('list_booking');

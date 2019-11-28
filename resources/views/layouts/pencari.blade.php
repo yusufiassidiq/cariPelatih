@@ -39,7 +39,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">CariPelatih</a>
+        <a class="navbar-brand" href="{{route('home')}}">CariPelatih</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
         </button>
@@ -47,32 +47,25 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="{{route('home')}}" class="nav-link">Home</a></li>
-	          <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
 	          <li class="nav-item"><a href="{{route('list_pelatih')}}" class="nav-link">Pelatih</a></li>
-	          <!-- <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
-	          <!-- <li class="nav-item"><a href="list_pelatih" class="nav-link">Properties</a></li> -->
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
-              <!-- Authentication Links -->
               @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <!-- <li class="nav-item"> -->
-                                <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Register <span class="caret"></span>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{route('registerPelatih')}}">
+                                    Register
                                 </a>
-                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('register') }}">Sebagai Pencari</a>
-                                        <a class="dropdown-item" href="{{ route('registerPelatih') }}">Sebagai Pelatih</a>
-                                          
-                                    </div>
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{route('list_booking')}}">
+                                  Booking
+                              </a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->nama }} <span class="caret"></span>
@@ -104,55 +97,23 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Uptown</h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-              <ul class="ftco-footer-social list-unstyled mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
+              <h2 class="ftco-heading-2">CariPelatih</h2>
             </div>
           </div>
           <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Community</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Search Properties</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>For Agents</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Reviews</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>FAQs</a></li>
-              </ul>
-            </div>
           </div>
           <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">About Us</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Our Story</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Meet the team</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Careers</a></li>
-              </ul>
-            </div>
           </div>
           <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Company</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About Us</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Press</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Careers</a></li>
-              </ul>
-            </div>
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Tentang Kami</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Sekolah Bisnis IPB, Kampus IPB Baranangsiang</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+6285695948174</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text">caripelatih@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

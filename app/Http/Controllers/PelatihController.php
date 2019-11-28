@@ -47,6 +47,7 @@ class PelatihController extends Controller
         $profpic->move($tujuan_upload,$namaprofpic);
         }
 
+
         $cv = $request->file('cv');
         if(!empty($cv)){
         $namacv = time()."_".$cv->getClientOriginalName();
@@ -54,9 +55,10 @@ class PelatihController extends Controller
 		$tujuan_upload = 'pelatihfile/cv';
         $cv->move($tujuan_upload,$namacv);
         }
-        $idkategori = $request->kategoriOlahraga;
+
+        $idkategori = $request->asd;
         $kategori = KategoriOlahraga::find($idkategori);
-        // dd($kategori);
+        // dd($kategori->namaOlahraga);
         $calonPelatih = new CalonPelatih([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
@@ -72,6 +74,7 @@ class PelatihController extends Controller
             'status' => 'Menunggu Konfirmasi', 
             'password' => (Hash::make($request->password)),
         ]);
+        // dd($calonPelatih);
         $calonPelatih->save();
         
         return redirect()
@@ -107,6 +110,15 @@ class PelatihController extends Controller
         return view('list_pelatih',compact('countsearch','pelatihs','kategoriOlahragas'));
         }
     }
+
+    public function history(){
+        return view('pelatih.history');
+    }
+
+    public function pekerjaan(){
+        return view('pelatih.pekerjaan');
+    }
+    
     public function showProfile(Request $request, $id){
         $pelatih = User::find($id);
         $olahraga = $pelatih->kategoriOlahraga[0]->namaOlahraga;
