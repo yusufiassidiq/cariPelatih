@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KategoriOlahraga;
 use Auth;
+use App\Booking;
 
 class PencariController extends Controller
 {
@@ -27,7 +28,10 @@ class PencariController extends Controller
     }
 
     public function list_booking(){
-        return view('pencari.booking');
+        $bookings = Booking::where('status',"0")->where('user_id',Auth::user()->id)->get();
+        
+        // dd($booking);
+        return view('pencari.booking',compact('bookings'));
     }
     
 }

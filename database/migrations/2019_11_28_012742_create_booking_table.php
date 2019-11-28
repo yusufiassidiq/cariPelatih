@@ -21,11 +21,13 @@ class CreateBookingTable extends Migration
             $table->unsignedbigInteger('pelatih_id');
             $table->foreign('pelatih_id')
                 ->references('id')->on('users');
+            $table->string('namaPelatih')->nullable();
             $table->datetime('tanggal')->nullable();
             $table->integer('durasi')->nullable();
             $table->string('catatan')->nullable();
             $table->string('buktiPembayaran')->nullable();
             $table->string('status')->nullable();
+            $table->integer('biaya')->nullable();
             $table->timestamps();
         });
     }

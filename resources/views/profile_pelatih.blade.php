@@ -265,6 +265,12 @@
                         </div>
                       </div>
                       <div class="form-group row">
+                        <label for="namaPelatih" class="col-sm-2 col-form-label">Nama Pelatih</label>
+                        <div class="col-sm-10">
+                          <input type="text" value="{{$pelatih->nama}}" class="form-control" name="namaPelatih" placeholder="Nama Pelatih">
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Tanggal</label>
                         <div class="col-sm-10">
                           <input type="datetime-local" value=""  class="form-control" name="tanggal" placeholder="Tanggal">

@@ -35,24 +35,27 @@
             <div class="tab-content" id="custom-tabs-three-tabContent">
               <div class="tab-pane fade show active" id="custom-tabs-three-pending" role="tabpanel" aria-labelledby="custom-tabs-three-pending-tab">
                 <table id="tabelPending" class="table table-hover table-bordered">
-                  <thead>                  
+                  <thead>
+                                     
                     <tr>
                       <th>Pelatih</th>
                       <th>Tanggal</th>
                       <th style="width: 50px;">Durasi</th>
-                      <th>Biaya</th>
+                      <!-- <th>Biaya</th> -->
                       <th>Total</th>
                       <th style="width: 30px;">Foto</th>
                       <th style="width: 90px;">Status</th>
                     </tr>
+                    
                   </thead>
                   <tbody>
+                  @foreach($bookings as $booking) 
                     <tr>
-                      <td>Yusuf Assidiq</td>
-                      <td>31 Desember 2019</td>
-                      <td>7</td>
-                      <td>50000</td>
-                      <td>350000</td>
+                      <td>{{$booking->namaPelatih}}</td>
+                      <td>{{$booking->tanggal}}</td>
+                      <td>{{$booking->durasi}}</td>
+                      <!-- <td>50000</td> -->
+                      <td>{{$booking->biaya}}</td>
                       <td>
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalUploadBukti"><i class="fas fa-eye"></i>Upload</button>
                       </td>
@@ -96,6 +99,7 @@
                         </div>
                       </div>
                     </tr>
+                  @endforeach
                   </tbody>
                 </table>
               </div>

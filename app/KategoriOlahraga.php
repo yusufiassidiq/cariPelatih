@@ -11,6 +11,6 @@ class KategoriOlahraga extends Model
     public $incrementing = false;
     
     public function pelatih(){
-        return $this->belongsToMany('App\User', 'kategori_olahraga_user', 'kategori_olahraga_id','user_id' )->withTimestamps();
+        return $this->belongsToMany('App\User', 'kategori_olahraga_user', 'pelatih_id','user_id' )->withTimestamps();
     }
 }
