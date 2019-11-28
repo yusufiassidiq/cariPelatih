@@ -56,7 +56,7 @@
                   <div class="row third">
                     <div class="input-field">
                       <div class="result-count">
-                        <span>108 </span>results</div>
+                        <span>{{$countsearch}} </span>results</div>
                       <div class="group-btn">
                         <button class="btn-delete" id="delete">RESET</button>
                         <button class="btn-search" type="submit">SEARCH</button>

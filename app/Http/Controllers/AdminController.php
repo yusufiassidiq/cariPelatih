@@ -28,7 +28,8 @@ class AdminController extends Controller
     
     // fungsi untuk pindah ke halaman pengguna
     public function pengguna(){
-        return view('admin.pengguna');
+        $calonPelatihs = CalonPelatih::all();
+        return view('admin.pengguna',compact('calonPelatihs'));
     }    
 
     public function deleteCalonPelatih($id){

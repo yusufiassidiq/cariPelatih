@@ -58,7 +58,8 @@ Route::post('/addPelatih', 'PelatihController@addPelatih')->name('addPelatih');
 Route::post('/list_pelatih', 'PelatihController@list_pelatih')->name('filterPelatih');
 Route::get('/registerPelatih', 'PelatihController@registerPelatih')->name('registerPelatih');
 
-Route::get('/profile/{id}', 'PelatihController@showProfile')->name('showProfilePelatih');
+Route::get('/profile/{id}', 'PelatihController@showProfile')->name('showProfilePelatih')->middleware('auth');
+Route::post('/book','BookingController@bookPelatih')->name('bookPelatih');
 
 Route::get('/home','PencariController@index')->name('home');
 Route::get('/list_pelatih', 'PelatihController@list_pelatih')->name('list_pelatih');

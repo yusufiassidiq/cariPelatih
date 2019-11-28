@@ -102,12 +102,15 @@ class PelatihController extends Controller
                 $pelatihs = User::where('class_user_id',"2")->has('kategoriOlahraga')->with('kategoriOlahraga')->get();
             }
             $kategoriOlahragas = KategoriOlahraga::all();
-        return view('list_pelatih',compact('pelatihs','kategoriOlahragas'));
+            $countsearch = count($pelatihs);
+            // dd($asd);
+        return view('list_pelatih',compact('countsearch','pelatihs','kategoriOlahragas'));
         }
     }
     public function showProfile(Request $request, $id){
         $pelatih = User::find($id);
         $olahraga = $pelatih->kategoriOlahraga[0]->namaOlahraga;
-        return view('profile_pelatih', compact('pelatih','olahraga'));
+        $pencari = Auth::User();
+        return view('profile_pelatih', compact('pencari','pelatih','olahraga'));
     }
 }

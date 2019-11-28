@@ -18,11 +18,7 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-<style>
-.img-circle {
-  border-radius: 50%;
-}
-</style>
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -54,12 +50,12 @@
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
+<br>
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
@@ -81,21 +77,7 @@
 
                 <hr>
 
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                
               </div>
               <!-- /.card-body -->
             </div>
@@ -103,26 +85,33 @@
           </div>
           <!-- /.col -->
           <div class="col-md-9">
+              <div>
+                  @if ($message = Session::get('success'))
+                      <div id="messageAlert" class="alert alert-success alert-dismissible">
+                        <h4><i class="icon fa fa-check"></i> Berhasil!</h4>
+                        {{ $message }}
+                      </div>
+                  @endif
+                  @if (count($errors) > 0)
+                  <div id="messageAlert" class="alert alert-danger alert-dismissible">
+                    <h4><i class="icon fa fa-close"></i> Gagal!</h4>
+                    @foreach ($errors->all() as $error)
+                    <label class="failed form-control alert alert-danger" >
+                      <li>{{ $error }}</li>
+                    </label>
+                    @endforeach
+                  </div>
+                  @endif
+              </div>
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Testimoni</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Lihat CV</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Booking Pelatih</a></li>
                 </ul>
               </div><!-- /.card-header -->
-              <style>
-              .img-bordered-sm {
-                border: 2px solid #adb5bd;
-                padding: 2px;
-              }
 
-              .user-block img {
-                float: left;
-                height: 40px;
-                width: 40px;
-              }
-              </style>
               <div class="card-body">
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
@@ -240,131 +229,57 @@
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="timeline">
-                    <!-- The timeline -->
-                    <div class="timeline timeline-inverse">
-                      <!-- timeline time label -->
-                      <div class="time-label">
-                        <span class="bg-danger">
-                          10 Feb. 2014
-                        </span>
-                      </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-envelope bg-primary"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                          <div class="timeline-body">
-                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                            quora plaxo ideeli hulu weebly balihoo...
-                          </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-user bg-info"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                          <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                          </h3>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-comments bg-warning"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                          <div class="timeline-body">
-                            Take me to your leader!
-                            Switzerland is small and neutral!
-                            We are more like Germany, ambitious and misunderstood!
-                          </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline time label -->
-                      <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                      </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-camera bg-purple"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                          <div class="timeline-body">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <div>
-                        <i class="far fa-clock bg-gray"></i>
-                      </div>
-                    </div>
+                  <div class="text-center" >
+                  <img  class="profile-user-img img-fluid img-circle2"
+                       src="{{ url('/pelatihfile/cv/'.$pelatih->cv) }}"
+                       alt="User profile picture">
+                </div>
                   </div>
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                    <form class="form-horizontal" method="POST" action="{{ route('bookPelatih') }}" enctype="multipart/form-data">
+                      @csrf
+                      <div class="form-group row" hidden>
+                        <label for="idPencari" class="col-sm-2 col-form-label">Id Pencari</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" value="{{$pencari->id}}" class="form-control" name="idPencari" placeholder="idPencari">
+                        </div>
+                      </div>
+                      <div class="form-group row" hidden>
+                        <label for="idPelatih" class="col-sm-2 col-form-label">Id Pelatih</label>
+                        <div class="col-sm-10">
+                          <input type="text" value="{{$pelatih->id}}" class="form-control" name="idPelatih" placeholder="idPelatih">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="text" value="{{$pencari->nama}}" class="form-control" name="nama" placeholder="Nama">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                          <input type="email" value="{{$pencari->email}}" class="form-control" name="email" placeholder="Email">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Tanggal</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                          <input type="datetime-local" value=""  class="form-control" name="tanggal" placeholder="Tanggal">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <label for="durasi" class="col-sm-2 col-form-label">Durasi</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                          <input type="number" class="form-control" name="durasi" placeholder="Dalam Jam">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="catatan" class="col-sm-2 col-form-label">Catatan</label>
+                        <div class="col-sm-10">
+                          <textarea class="form-control" name="catatan" placeholder="Catatan"></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -378,7 +293,7 @@
                       </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button type="submit" class="btn btn-danger">Book</button>
                         </div>
                       </div>
                     </form>
@@ -398,5 +313,28 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+<script>
+  window.setTimeout(function() {
+    $(".alert").fadeTo(200, 0).slideUp(200, function(){
+    $(this).remove(); 
+  });
+}, 3000);
+</script>
+<style>
+.img-bordered-sm {
+  border: 2px solid #adb5bd;
+  padding: 2px;
+}
+.user-block img {
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.img-circle2 {
+  border-radius: 10%;
+}
+</style>
 @endsection
